@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <input data-ng-model="vm.searchString"
+               data-ng-change="vm.searchZip(false);" 
+               type="text" class="search input-lg" 
+               placeholder="Search location..." />
+        <input data-ng-click="vm.searchZip(true);" 
+               data-ng-disabled="vm.buttonDisabled"
+               type="button" class="search btn btn-success btn-lg" 
+               value="{{ vm.buttonLabel }}" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2" data-ng-if="vm.zipCodes.length > 0">
+        <h1>Result(s) :</h1>
+        <ul>
+            <li data-ng-repeat="zip in vm.zipCodes"> <strong>{{ zip.zip }}</strong> - {{ zip.location }}, {{ zip.city }}</li>
+        </ul>
+    </div> 
+</div>
